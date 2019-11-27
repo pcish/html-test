@@ -32,14 +32,17 @@
         });
         return null;
       }
+      
       function updateResults(e) {
         const contentElem = document.getElementById("content");
         contentElem.textContent = getJob(e.target.value);
       }
+      
+      document.getElementById("input").oninput = updateResults;
     </script>
   </head>
   <body>
-    <input type="text" on-input="updateResults"></input>
+    <input id="input" type="text" on-change="updateResults"></input>
     <div id="content"></div>
   </body>
 </html>
