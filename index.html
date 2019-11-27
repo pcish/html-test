@@ -1,3 +1,48 @@
 <html>
-<p>Hello world</p>
+  <head>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDhYmkRmuLxnv-ePL0WihkUIcjSDjyvBlY",
+        authDomain: "yamdc-eee60.firebaseapp.com",
+        databaseURL: "https://yamdc-eee60.firebaseio.com",
+        projectId: "yamdc-eee60",
+        storageBucket: "yamdc-eee60.appspot.com",
+        messagingSenderId: "417543027987",
+        appId: "1:417543027987:web:c65394bf9d5b5eaba96ee6"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      
+      function getJob(jobName) {
+        var docRef = db.collection("jobs").doc(jobName);
+
+        docRef.get().then(function(doc) {
+            if (doc.exists) {
+                console.log("Document data:", doc.data());
+              return doc.data();
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+        return null;
+      }
+      function updateResults(e) {
+        const contentElem = document.getElementById("content");
+        contentElem.textContent = getJob(e.target.value);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" on-input="updateResults"></input>
+    <div id="content"></div>
+  </body>
 </html>
