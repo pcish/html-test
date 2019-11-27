@@ -16,7 +16,13 @@
         appId: "1:417543027987:web:c65394bf9d5b5eaba96ee6"
       };
       firebase.initializeApp(firebaseConfig);
-      
+    </script>
+  </head>
+  <body>
+    <input id="input" type="text" on-change="updateResults"></input>
+    <div id="content"></div>
+  </body>
+  <script>
       function getJob(jobName) {
         var docRef = db.collection("jobs").doc(jobName);
 
@@ -37,12 +43,7 @@
         const contentElem = document.getElementById("content");
         contentElem.textContent = getJob(e.target.value);
       }
-      
-      document.getElementById("input").oninput = updateResults;
-    </script>
-  </head>
-  <body>
-    <input id="input" type="text" on-change="updateResults"></input>
-    <div id="content"></div>
-  </body>
+    
+    document.getElementById("input").oninput = updateResults;
+  </script>
 </html>
