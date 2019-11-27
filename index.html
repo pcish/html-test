@@ -6,7 +6,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 
     <script>
-      // Your web app's Firebase configuration
       var firebaseConfig = {
         apiKey: "AIzaSyDhYmkRmuLxnv-ePL0WihkUIcjSDjyvBlY",
         authDomain: "yamdc-eee60.firebaseapp.com",
@@ -16,7 +15,6 @@
         messagingSenderId: "417543027987",
         appId: "1:417543027987:web:c65394bf9d5b5eaba96ee6"
       };
-      // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       
       function getJob(jobName) {
@@ -27,7 +25,6 @@
                 console.log("Document data:", doc.data());
               return doc.data();
             } else {
-                // doc.data() will be undefined in this case
                 console.log("No such document!");
             }
         }).catch(function(error) {
